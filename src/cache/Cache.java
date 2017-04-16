@@ -6,11 +6,7 @@ import java.util.Map;
 /**
  * Created by VVykhor on 16.04.2017.
  */
-public class Cache implements DataAccessor {
-
-    private Database database = new Database();
-    private Map<Integer, Product> cacheData = new HashMap<>();
-    private final String REQUEST = "SELECT product FROM product WHERE id=";
+public class Cache {
 
     public Cache() {
         for(int i = 0; i < 5; ++i) {
@@ -18,16 +14,15 @@ public class Cache implements DataAccessor {
         }
     }
 
-    public Product findProduct(String request) {
-        int hashCode = request.hashCode();
-        if(cacheData.containsKey(hashCode)) {
-            System.out.println("get from cache");
-            return cacheData.get(hashCode);
-        } else {
-            System.out.println("get from database");
-            Product product = database.findProduct(request);
-            cacheData.put(hashCode, product);
-            return product;
-        }
+    private Map<Integer, Product> cacheData = new HashMap<>();
+    private final String REQUEST = "SELECT product FROM product WHERE id=";
+
+    public Product get(int key) {
+        return cacheData.get(key);
     }
+
+    public void put(int key, Product product) {
+        cacheData.put(key, product);
+    }
+
 }

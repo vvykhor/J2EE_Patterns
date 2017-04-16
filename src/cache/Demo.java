@@ -5,7 +5,7 @@ package cache;
  */
 public class Demo {
     public static void main(String[] args) {
-        DataAccessor accessor = new Cache();
+        DataAccessor accessor = new CacheAccessor();
         accessor.findProduct("SELECT product FROM product WHERE id=1");
         accessor.findProduct("SELECT product FROM product WHERE id=2");
         accessor.findProduct("SELECT product FROM product WHERE id=1");
