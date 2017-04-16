@@ -10,6 +10,13 @@ public class Cache {
 
     private Database database = new Database();
     private Map<Integer, Product> cacheData = new HashMap<>();
+    private final String REQUEST = "SELECT product FROM product WHERE id=";
+
+    public Cache() {
+        for(int i = 0; i < 5; ++i) {
+            cacheData.put((REQUEST + i).hashCode(), new Product(i));
+        }
+    }
 
     public Product findProduct(String request) {
         int hashCode = request.hashCode();

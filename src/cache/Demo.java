@@ -10,5 +10,7 @@ public class Demo {
         cache.findProduct("SELECT product FROM product WHERE id=2");
         cache.findProduct("SELECT product FROM product WHERE id=1");
         cache.findProduct("SELECT product FROM product WHERE id=3");
+        cache.findProduct("SELECT product FROM product WHERE id=6");
+        cache.findProduct("SELECT product FROM product WHERE id=7");
     }
 }
