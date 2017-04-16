@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by VVykhor on 16.04.2017.
  */
-public class Cache {
+public class Cache implements DataAccessor {
 
     private Database database = new Database();
     private Map<Integer, Product> cacheData = new HashMap<>();
