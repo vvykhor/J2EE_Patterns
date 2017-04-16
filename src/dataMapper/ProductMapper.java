@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by VVykhor on 16.04.2017.
  */
+
 public class ProductMapper {
 
     public static void insert(Product product) {
@@ -21,8 +22,9 @@ public class ProductMapper {
                     products.add(new Product(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("type")));
                 }
             }
+            ProductGateway.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println("Error: " + e);
         }
         return products;
     }
