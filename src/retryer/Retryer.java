@@ -5,8 +5,13 @@ package retryer;
  */
 public class Retryer implements Retryable {
 
+    private Connector c;
+
+    public Retryer() {
+        c = new Connector();
+    }
+
     public void connect() {
-        Connector c = new Connector();
         for(int i=0; i<5; ++i) {
             try {
                 c.connect();
