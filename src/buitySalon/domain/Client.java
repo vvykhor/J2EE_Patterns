@@ -1,5 +1,7 @@
 package buitySalon.domain;
 
+import buitySalon.gateway.ClientGateway;
+
 import java.util.List;
 
 /**
@@ -27,18 +29,18 @@ public class Client {
     }
 
     public static Client findById(int id) {
-
+        return ClientGateway.findById(id);
     }
 
     public static List<Client> findAll() {
-
+        return ClientGateway.findAll();
     }
 
-    public static void addClient(Client serviceType) {
-
+    public static void addClient(Client client) {
+        ClientGateway.insert(client);
     }
 
-    public static void removeClient(int id) {
-
+    public static void removeClient(Client client) {
+        ClientGateway.delete(client);
     }
 }
